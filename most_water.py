@@ -29,7 +29,42 @@ class Solution(object):
         
         
         return high
+  
+
+
+#Optimal - not working fully
+
+"""
+largest = 0
+        idx = -1
+        k=0
+        for i,l in enumerate(height):
+            if l>largest:
+                largest = l
+                idx = i
                 
+        for index,i in enumerate(height):
+            if idx - index <0:
+                area = i*(index-idx)
+            else:
+                area = i * (idx-index) # with high
+            if area > high:
+                high = area
+            
+            if i < height[len(height)-1]:
+                area2 = i* (len(height[index:])-1)
+                #print(index,area2)
+            else:
+                area2 = height[len(height)-1] * (len(height[index:])-1)
+                #print(area2)
+            
+            
+            if area2>high:
+                high = area2
+                
+            #print(high)
+            k+=1
+""" 
         
         
         
