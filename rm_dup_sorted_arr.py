@@ -37,3 +37,25 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 """
+
+
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        cumsum=0
+        k=0
+        
+        x = [-6.9 for i in xrange(len(nums))] #any arbitrary double value as the original array contains sorted integer values (signed)
+        
+        for num in nums:
+            if num not in x:
+                x[k] = num
+                nums[k] = num
+                k+=1
+        print(x)
+        
+        return k
