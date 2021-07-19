@@ -16,54 +16,7 @@ Output: ""
 Explanation: There is no common prefix among the input strings.
 """
 
-#Approach 1 - Naive and lengthy (1st attempt, not recommended)
 
-"""
-class Solution(object):
-    def longestCommonPrefix(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: str
-        """
-        
-        self.strs = strs
-        
-       
-        
-        longest=''
-        
-        smallest=min(strs,key=len)
-        strs.remove(smallest)
-        
-        fstrs = ''.join(strs)
-        
-        flag=0
-        
-        
-        treshold = len(smallest)
-        j=0
-        while j<treshold:
-            #print(smallest[j:treshold])
-            if fstrs.count(smallest[j:treshold])==len(strs):
-                count=0
-                for word in strs:
-                    if word[0:len(smallest[j:treshold])] == smallest[j:treshold]:
-                        count+=1
-                if count == len(strs):
-                    flag=1
-                    longest = smallest[j:treshold]
-                    break
-
-            treshold-=1
-           
-                
-            
-        
-        return longest
-        
- """           
-            
-        
  class Solution(object):
     def longestCommonPrefix(self, strs):
         """
