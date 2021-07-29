@@ -14,3 +14,11 @@ Output: 3
 Explanation: The input binary string 00000000000000000000000000001011 has a total of three '1' bits.
 """
 
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        
+        
+        s =list(str(bin(n))[2:])
+        #print(s)
+        return len(list(filter(lambda x:x=="1",list(s))))
+        
