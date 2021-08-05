@@ -16,3 +16,22 @@ Explanation: A square plot of side length 1 does not contain any apples.
 However, a square plot of side length 2 has 12 apples inside (as depicted in the image above).
 The perimeter is 2 * 4 = 8.
 """
+
+
+class Solution(object):
+    def minimumPerimeter(self, neededApples):
+        """
+        :type neededApples: int
+        :rtype: int
+        """ 
+        cx = 2
+        tA=0
+        
+        while tA<neededApples:
+            tA = 2* (cx/2)*((cx/2)+1)*(cx+1)
+            if tA>=neededApples:
+                break
+            else:
+                cx+=2
+            
+        return cx*4
