@@ -10,7 +10,6 @@ As code is circular, the next element of code[n-1] is code[0], and the previous 
 
 Given the circular array code and an integer key k, return the decrypted code to defuse the bomb!
 
- 
 
 Example 1:
 
@@ -28,3 +27,44 @@ Input: code = [2,4,9,3], k = -2
 Output: [12,5,6,13]
 Explanation: The decrypted code is [3+9, 2+3, 4+2, 9+4]. Notice that the numbers wrap around again. If k is negative, the sum is of the previous numbers.
 """
+
+
+class Solution(object):
+    def decrypt(self, code, k):
+        """
+        :type code: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        
+    
+        
+        n = len(code)
+        
+        if n==1:
+            return [0]
+        res=[-1 for i in range(n)]
+        
+        for i in range(0,n):
+            if k==0:
+                res[i] = 0
+            elif k>0:
+                if i+k>n-1:
+                    right = n-1-i
+                    left = k-right
+                    res[i] = sum(code[i+1:i+1+right])+sum(code[:left])
+                else:
+                    #print(sum(code[i+1:i+k+1]))
+                    res[i] = sum(code[i+1:i+k+1])
+            else:
+                if abs(k)>i:
+                    left=i
+                    right=abs(k)-left
+                    #print(sum(code[:i]),sum(code[:n-1-right:-1]))
+                    res[i] = sum(code[:i])+sum(code[:n-1-right:-1])
+                
+                else:
+                    #print(i-k,i)
+                    res[i] = sum(code[i-abs(k):i])
+        return res
+                
