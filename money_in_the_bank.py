@@ -22,3 +22,38 @@ Input: n = 20
 Output: 96
 Explanation: After the 20th day, the total is (1 + 2 + 3 + 4 + 5 + 6 + 7) + (2 + 3 + 4 + 5 + 6 + 7 + 8) + (3 + 4 + 5 + 6 + 7 + 8) = 96.
 """
+class Solution(object):
+    def totalMoney(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        
+        if n<=7:
+            return (n*(n+1))/2
+        
+        sevens = n//7
+        
+        k=0
+        total=0
+        while k<sevens:
+            #print("x")
+            offset = k+7
+            
+            total+=(offset*(offset+1)/2)
+            
+            if k>0:
+                total-= (k*(k+1)/2)
+            #print(total)
+            k+=1
+        
+        remainder = n%7
+        
+        #actualSum=0
+        
+        
+        for i in range(sevens+1,sevens+remainder+1):
+            total+= i
+        
+        return total
+        
