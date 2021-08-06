@@ -20,7 +20,7 @@ Explanation: Your function can return either index number 1 where the peak eleme
 """
 
 
-#Can use binary search or regular for loop to find peak element in an unsorted array
+
 
 class Solution(object):
     def findPeakElement(self, nums):
@@ -28,7 +28,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        """
+        
         j=0
         for i in range(1,len(nums)-1):
             #print(i)
@@ -41,19 +41,5 @@ class Solution(object):
             return nums.index(max(nums))
         else:
             return j
-        """
-        ans=-1
-        low = 0
-        high = len(nums)
+       
         
-        while low<=high:
-            m = (low+high)//2
-            
-            if nums[m]>nums[m-1] and nums[m] >nums[m+1]:
-                ans=m
-                break
-            elif nums[m]>nums[m-1] and nums[m]<nums[m+1]:
-                high = m-1
-            elif nums[m]>nums[m+1] and nums[m]<nums[m-1]:
-                low = m+1
-        return ans
