@@ -1,5 +1,8 @@
 class Node:
     
+    depth=0
+    loT=[]      #If breadth first search needs to be grouped as subarray level wise
+    tracker=[]
     def __init__(self,data,left=None,right=None):
         self.data = data
         self.left = None
@@ -67,9 +70,17 @@ def printCurrentLevel(root,h):
         return
     if h ==1:
         print(root.data)
+        if self.depth not in self.tracker:           #Check if current level of present node not already there(another node with same level)->new level
+            self.loT.append([root.data])             #create a new subarray and add to it
+            self.tracker.append(self.depth)          #add current level
+        else:
+            self.loT[self.depth].append(root.data)   #If a node of same level already there, add current node to already present level
+            
     if h>1:
+        self.depth+=1                   #Identify level of current node
         printCurrentLevel(root.left,h-1)
         printCurrentLevel(root.right,h-1)
+        self.depth-=1                   #identify level of current node
 n = input("Enter elements")
 
 i=0
