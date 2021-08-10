@@ -25,3 +25,50 @@ Example 2:
 Input: points = [[3,2],[-2,2]]
 Output: 5
 """
+
+
+import math
+class Solution(object):
+    def minTimeToVisitAllPoints(self, points):
+        """
+        :type points: List[List[int]]
+        :rtype: int
+        """
+        """
+        n = len(points)
+        
+        if n==1:
+            return 0
+        
+        
+        minTime = 0
+        for i in range(0,n-1):
+            
+            if points[i][0] == points[i+1][0] and points[i][1] == points[i+1][1]:
+                minTime+= int(abs(points[i][1]-points[i+1][1]))
+                
+            elif points[i][0] == points[i+1][0]:
+                
+                minTime += int(abs(points[i][1]-points[i+1][1]))
+            elif points[i][1] == points[i+1][1]:
+                minTime += int(abs(points[i][0]-points[i+1][0]))
+            else:
+                toAdd = abs(points[i][0]-points[i+1][0])
+                
+                if abs(points[i][1]+toAdd)>abs(points[i+1][1]):
+                    minTime+=toAdd
+                else:
+                    diff = abs(points[i+1][1]-(points[i][1]+toAdd))
+                    minTime+=toAdd+diff
+        
+        return minTime
+        """
+        
+        minTime = 0
+        
+        for i in range(0,len(points)-1):
+            p1,p2 = points[i],points[i+1]
+            
+            minTime+= max(abs(p1[0]-p2[0]),abs(p1[1]-p2[1]))
+        return minTime
+        return 1
