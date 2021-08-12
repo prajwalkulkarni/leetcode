@@ -39,9 +39,10 @@ def boundaryTraversal(root):
   
   if root:
     print(root.data)
-    boundaryLeft(root)
+    boundaryLeft(root.left)
     
-    traverseLeaves(root)
+    traverseLeaves(root.left)
+    traverseLeave(root.right)
     
-    boundaryRight(root)
+    boundaryRight(root.right)
  
