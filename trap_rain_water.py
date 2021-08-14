@@ -8,7 +8,7 @@ def trapRainWater(arr):
     left = arr[i]
     
     for j in range(i):
-      left = max(left,arr[i])
+      left = max(left,arr[j])
      
     
     right = arr[i]
