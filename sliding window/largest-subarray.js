@@ -39,5 +39,7 @@ function largestSummation(arr){
     r+=1;
   }
 
+  return largestSum
+
   
 }
