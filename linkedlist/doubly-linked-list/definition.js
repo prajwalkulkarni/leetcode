@@ -17,7 +17,7 @@ function arrayToDoublyLinkedList(arr){
 
   const head = new Node(arr[0]);
   let temp = head;
-  for(let i = 1;i<n;++i){
+  for(let i = 1;i<arr.length;++i){
 
     const node = new Node(arr[i]);
 
