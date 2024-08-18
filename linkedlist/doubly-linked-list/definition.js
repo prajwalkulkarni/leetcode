@@ -22,6 +22,7 @@ function arrayToDoublyLinkedList(arr){
     const node = new Node(arr[i]);
 
     node.prev = temp;
+    temp.next = node;
     temp = node;
   }
 
