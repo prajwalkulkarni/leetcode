@@ -33,27 +33,14 @@ return head;
 }
 
 function reverse(head){
-
-  let curr = head;
-  let aux = head;
-  let prev = head;
-
-  while(curr.next !== null){
-    prev = curr;
-    curr = curr.next;
-    aux = aux.next;
+  let temp = null;
+  while (current != null) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
   }
-
-  head = curr;
-
-  while(aux.prev !== null){
-    curr.next = prev;
-    curr = prev;
-    prev = prev.prev;
-    aux = aux.prev;
-  }
-
-  console.log(head);
+  console.log(curr);
 
   
 }
