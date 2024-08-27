@@ -23,6 +23,8 @@ function createDLL(){
 
   return head;
 }
+
+  //Tortoise hare implementation
 function middleElement(head){
 
   let fast = head;
