@@ -1,6 +1,5 @@
 function fibonacciseries(n){
     const arr = [0,1];
-
     let startIndex = 1;
     function closure(){
         startIndex+=1;
@@ -14,9 +13,7 @@ function fibonacciseries(n){
 
         arr.push(arr[startIndex-1]+arr[startIndex-2])
         closure();
-        
     }
-
     closure();
 
     return arr;
