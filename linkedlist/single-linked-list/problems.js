@@ -48,3 +48,31 @@ function middleElement(head){
   }
   return slow;
 }
+
+
+// Delete Nth node from the last
+const header = createDLL();
+
+//Brute force approach
+// Find the length of the LL, and call it L, Nth node from behind is L - N th from ahead with 0 - index
+
+function deleteNode(n, head){
+  let curr = head;
+  let l = 0;
+  while(curr.next !== null){
+    l+=1;
+  }
+
+  const target = l - n;
+  let currentIndex = 0;
+  curr = head;
+  while(currentIndex < target - 1){
+    currentIndex += 1;
+    curr = curr.next;
+  }
+  const targetNode = curr.next.next;
+  curr.next = targetNode;
+  targetNode.next = null
+  
+  
+}
