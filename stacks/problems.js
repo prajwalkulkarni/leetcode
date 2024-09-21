@@ -38,3 +38,29 @@ function nextGreaterElement(arr){
   }
   return sol
 }
+
+// Optimal solution using stack - non-circular case
+// Start from the end, pop all the elements from the stack that are lesser than the value at the current index. Once a larger element is found
+// assign that value as nge of the current index and push the current element to the stack.
+function nextGreaterElementUsingStack(arr){
+  const stack = [];
+  const res = [];
+
+  for(let i = arr.length - 1; i>=0;--i){
+    
+    while(stack[stack.length - 1] !== undefined && stack[stack.length - 1] <= arr[i]){
+      stack.pop();
+    }
+
+      
+      if(stack[stack.length - 1] !== undefined){
+        res[i] = stack[stack.length - 1];
+      }else{
+        res[i] = -1;
+      }
+       stack.push(arr[i])
+    
+  }
+  return res;
+  
+}
