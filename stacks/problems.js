@@ -64,3 +64,28 @@ function nextGreaterElementUsingStack(arr){
   return res;
   
 }
+
+// Optimal solution - circular array, duplicate the array, and push it to the original array so that all the elements behind an element also come next to it.
+function nextGreaterElementUsingStack(arr){
+  const stack = [];
+  const res = [];
+
+  for(let i = 2 * arr.length - 1; i>=0;--i){
+    
+    while(stack[stack.length - 1] !== undefined && stack[stack.length - 1] <= arr[i % arr.length]){
+      stack.pop();
+    }
+
+      
+      if(stack[stack.length - 1] !== undefined){
+        res[i] = stack[stack.length - 1];
+      }else{
+        res[i] = -1;
+      }
+       stack.push(arr[i % arr.length])
+    
+  }
+  return res.slice(0, arr.length);
+  
+}
+
